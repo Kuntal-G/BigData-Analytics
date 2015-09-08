@@ -1,0 +1,1 @@
+Please include the jars from Hbase installation lib directory along with Hbase conf file

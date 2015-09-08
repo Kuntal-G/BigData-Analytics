@@ -3,7 +3,7 @@ Zookeeper Distributed Queue:
 
 An example of distributed queue using zookeeper and curator framework from Netflix.
 
-Steps to run the example:
+##Steps to run the example:
 
 1) Start zookeeper on your system (assuming it is running on localhost:2181)
 

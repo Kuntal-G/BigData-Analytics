@@ -1,0 +1,84 @@
+Map Side JOIN::
+---------------
+This gist details how to inner join two large datasets on the map­side, leveraging the join capability 
+in mapreduce.  Such a join makes sense if both input datasets are too large to qualify for distribution 
+through distributedcache, and can be implemented if both input datasets can be joined by the join key 
+and both input datasets are sorted in the same order, by the join key.
+ 
+There are two critical pieces to engaging the join behavior: 
+­ the input format must be set to CompositeInputFormat.class, and 
+­ the key mapred.join.expr must have a value that is a valid join specification. 
+
+
+
+
+Employee data [joinProject/data/employees_sorted/part­e]
+­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+[EmpNo,DOB,FName,LName,Gender,HireDate,DeptNo]
+10001,1953­09­02,Georgi,Facello,M,1986­06­26,d005
+
+10002,1964­06­02,Bezalel,Simmel,F,1985­11­21,d007
+10003,1959­12­03,Parto,Bamford,M,1986­08­28,d004
+10004,1954­05­01,Chirstian,Koblick,M,1986­12­01,d004
+10005,1955­01­21,Kyoichi,Maliniak,M,1989­09­12,d003
+10006,1953­04­20,Anneke,Preusig,F,1989­06­02,d005
+
+ 
+Salary data [joinProject/data/salaries_sorted/part­s]
+­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+[EmpNo,Salary,FromDate,ToDate]
+10001,88958,2002­06­22,9999­01­01
+10002,72527,2001­08­02,9999­01­01
+10003,43311,2001­12­01,9999­01­01
+10004,74057,2001­11­27,9999­01­01
+10005,94692,2001­09­09,9999­01­01
+
+
+
+
+Expected Results ­ tab separated
+************************************
+[EmpNo  FName   LName   Salary]
+10001   Georgi  Facello 88958
+10002   Bezalel Simmel  72527
+10003   Parto   Bamford 43311
+10004   Chirstian       Koblick 74057
+10005   Kyoichi Maliniak        94692
+10006   Anneke  Preusig 59755
+10009   Sumant  Peac    94409
+10010   Duangkaew       Piveteau        80324
+
+
+
+
+HDFS data load commands 
+**************************
+ 
+hadoop fs ­mkdir joinProject
+hadoop fs ­put joinProject/* joinProject/
+
+Command to run program
+**************************
+ 
+hadoop jar ~/Blog/joinProject/MapSideJoinLargeDatasets/jar/MapSideJoinLgDsOAPI.jar DriverMapSideJoinLargeDatasets /user/akhanolk
+
+Results
+**************************
+...
+13/09/22 13:11:17 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+13/09/22 13:11:17 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+7 13/09/22 13:11:17 INFO mapred.JobClient:   Map­Reduce Framework
+8 13/09/22 13:11:17 INFO mapred.JobClient:     Map input records=224683000
+13/09/22 13:11:17 INFO mapred.JobClient:     Map output records=224683000
+10
+...
+ 
+$ hadoop fs ­cat joinProject/output/output­MapSideJoinLargeDatasets/part* | less
+10001   Georgi  Facello 88958
+10002   Bezalel Simmel  72527
+10003   Parto   Bamford 43311
+10004   Chirstian       Koblick 74057
+10005   Kyoichi Maliniak        94692
+10006   Anneke  Preusig 59755
+10009   Sumant  Peac    94409
+10010   Duangkaew       Piveteau        80324

@@ -1,2 +1,2 @@
-# spark-analytics
+# Spark Analytics
 

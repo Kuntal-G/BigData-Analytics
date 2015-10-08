@@ -15,7 +15,7 @@ import java.util.TreeMap;
 
 /**
  * Keeps stats on word count, calculates and logs top words every X second to stdout and top list every Y seconds,
- * @author davidk
+ * @author kuntal
  */
 public class WordCounterBolt extends BaseRichBolt {
     private static final Logger logger = LoggerFactory.getLogger(WordCounterBolt.class);

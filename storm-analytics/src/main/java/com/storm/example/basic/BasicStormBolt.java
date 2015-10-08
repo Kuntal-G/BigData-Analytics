@@ -5,7 +5,7 @@ import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.base.BaseBasicBolt;
 import backtype.storm.tuple.Tuple;
 
-public class LearningStormBolt extends BaseBasicBolt{
+public class BasicStormBolt extends BaseBasicBolt{
 
 	private static final long serialVersionUID = 1L;
 

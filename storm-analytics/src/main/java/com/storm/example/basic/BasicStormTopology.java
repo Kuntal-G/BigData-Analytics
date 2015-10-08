@@ -6,14 +6,14 @@ import backtype.storm.generated.AlreadyAliveException;
 import backtype.storm.generated.InvalidTopologyException;
 import backtype.storm.topology.TopologyBuilder;
 
-public class LearningStormTopology {
+public class BasicStormTopology {
 	public static void main(String[] args) throws AlreadyAliveException,
 			InvalidTopologyException {
 		TopologyBuilder builder = new TopologyBuilder();
 		// set the spout class
-		builder.setSpout("LearningStormSpout", new LearningStormSpout(), 2);
+		builder.setSpout("LearningStormSpout", new BasicStormSpout(), 2);
 		// set the bolt class
-		builder.setBolt("LearningStormBolt", new LearningStormBolt(), 4).shuffleGrouping("LearningStormSpout");
+		builder.setBolt("LearningStormBolt", new BasicStormBolt(), 4).shuffleGrouping("LearningStormSpout");
 
 		Config conf = new Config();
 		conf.setDebug(true);

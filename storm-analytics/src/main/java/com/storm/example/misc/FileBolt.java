@@ -16,6 +16,7 @@ import java.util.Map;
  * Put tuples into a file.
  */
 public class FileBolt implements IBasicBolt{
+	
   private PrintWriter output;
   private String base;
 

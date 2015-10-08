@@ -34,7 +34,7 @@ public class CommitFeedListener extends BaseRichSpout {
     this.outputCollector = outputCollector;
 
     try {
-      commits = IOUtils.readLines(ClassLoader.getSystemResourceAsStream("changelog.txt"),Charset.defaultCharset().name());
+      commits = IOUtils.readLines(ClassLoader.getSystemResourceAsStream("dummychangelog.txt"),Charset.defaultCharset().name());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

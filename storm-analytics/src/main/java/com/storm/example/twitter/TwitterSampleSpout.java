@@ -16,7 +16,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Reads Twitter's sample feed using the twitter4j library.
- * @author davidk
+ * 
  */
 @SuppressWarnings({ "rawtypes", "serial" })
 public class TwitterSampleSpout extends BaseRichSpout {

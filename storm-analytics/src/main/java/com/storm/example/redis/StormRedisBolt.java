@@ -16,6 +16,7 @@ public class StormRedisBolt implements IBasicBolt{
 	private RedisOperations redisOperations = null;
 	private String redisIP = null;
 	private int port;
+	
 	public StormRedisBolt(String redisIP, int port) {
 		this.redisIP = redisIP;
 		this.port = port;

@@ -6,18 +6,18 @@ import backtype.storm.generated.AlreadyAliveException;
 import backtype.storm.generated.InvalidTopologyException;
 import backtype.storm.topology.TopologyBuilder;
 
-public class LearningStormSingleNodeTopology {
+public class BasicStormSingleNodeTopology {
 	public static void main(String[] args) {
 		TopologyBuilder builder = new TopologyBuilder();
-		builder.setSpout("LearningStormSpout", new LearningStormSpout(), 2);
-		builder.setBolt("LearningStormBolt", new LearningStormBolt(), 4).shuffleGrouping("LearningStormSpout");
+		builder.setSpout("BasicStormSpout", new BasicStormSpout(), 2);
+		builder.setBolt("BasicStormBolt", new BasicStormBolt(), 4).shuffleGrouping("BasicStormSpout");
 
 		Config conf = new Config();
 		conf.setNumWorkers(3);
 		
 		try {
-			// args[0] is the name of submitted topology
-			StormSubmitter.submitTopology(args[0], conf, builder.createTopology());
+			
+			StormSubmitter.submitTopology("Basic Topology", conf, builder.createTopology());
 		}catch(AlreadyAliveException alreadyAliveException) {
 			System.out.println(alreadyAliveException);
 		} catch (InvalidTopologyException invalidTopologyException) {

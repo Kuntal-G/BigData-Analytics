@@ -15,6 +15,7 @@ import java.util.Random;
  * Create test data.
  */
 public class EventSpout implements IRichSpout {
+	
   private final boolean isDistributed;
   private SpoutOutputCollector collector;
   private int n;
@@ -42,7 +43,7 @@ public class EventSpout implements IRichSpout {
   }
 
   private final String[] keys = new String[]{"z1", "z2", "z3", "z4", "z5"};
-  private final String[] words = new String[]{"nathan", "mike", "jackson", "golda", "bertels"};
+  private final String[] words = new String[]{"kuntal", "rock", "divya", "sonam", "shiva"};
   private final Random rand = new Random();
 
   public void nextTuple() {

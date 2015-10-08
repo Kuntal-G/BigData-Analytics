@@ -11,7 +11,7 @@ import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 
-public class LearningStormSpout extends BaseRichSpout{
+public class BasicStormSpout extends BaseRichSpout{
 	private static final long serialVersionUID = 1L;
 	private SpoutOutputCollector spoutOutputCollector;
 	private static final Map<Integer, String> map = new HashMap<Integer, String>();

@@ -12,6 +12,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
 public class CategoryGrouping implements CustomStreamGrouping, Serializable {
+	
 	private static final Map<String, Integer> categories = ImmutableMap.of(
 		"Financial", 0, 
 		"Medical", 1, 
@@ -21,8 +22,7 @@ public class CategoryGrouping implements CustomStreamGrouping, Serializable {
 
 	private int tasks = 0;
 
-	public void prepare(WorkerTopologyContext context, GlobalStreamId stream,
-			List<Integer> targetTasks) {
+	public void prepare(WorkerTopologyContext context, GlobalStreamId stream,List<Integer> targetTasks) {
 		tasks = targetTasks.size();
 	}
 

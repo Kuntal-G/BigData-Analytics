@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EmailCounter extends BaseBasicBolt {
+	
   private Map<String, Integer> counts;
 
   @Override

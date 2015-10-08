@@ -12,25 +12,26 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 
 public class SampleSpout extends BaseRichSpout {
+	
 	private static final long serialVersionUID = 1L;
 	private SpoutOutputCollector spoutOutputCollector;
 	
 	private static final Map<Integer, String> FIRSTNAMEMAP = new HashMap<Integer, String>();
 	static {
-		FIRSTNAMEMAP.put(0, "john");
-		FIRSTNAMEMAP.put(1, "nick");
-		FIRSTNAMEMAP.put(2, "mick");
-		FIRSTNAMEMAP.put(3, "tom");
-		FIRSTNAMEMAP.put(4, "jerry");
+		FIRSTNAMEMAP.put(0, "Kuntal");
+		FIRSTNAMEMAP.put(1, "Shiva");
+		FIRSTNAMEMAP.put(2, "John");
+		FIRSTNAMEMAP.put(3, "Rock");
+		FIRSTNAMEMAP.put(4, "Bajrang");
 	}
 	
 	private static final Map<Integer, String> LASTNAME = new HashMap<Integer, String>();
 	static {
-		LASTNAME.put(0, "anderson");
-		LASTNAME.put(1, "watson");
-		LASTNAME.put(2, "ponting");
-		LASTNAME.put(3, "dravid");
-		LASTNAME.put(4, "lara");
+		LASTNAME.put(0, "Ganesha");
+		LASTNAME.put(1, "Watson");
+		LASTNAME.put(2, "Ponting");
+		LASTNAME.put(3, "Dravid");
+		LASTNAME.put(4, "Sachin");
 	}
 	
 	private static final Map<Integer, String> COMPANYNAME = new HashMap<Integer, String>();

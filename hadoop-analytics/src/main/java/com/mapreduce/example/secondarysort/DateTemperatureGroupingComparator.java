@@ -12,8 +12,7 @@ import org.apache.hadoop.io.WritableComparator;
  * @author kuntal
  *
  */
-public class DateTemperatureGroupingComparator 
-   extends WritableComparator {
+public class DateTemperatureGroupingComparator extends WritableComparator {
 
     public DateTemperatureGroupingComparator() {
         super(DateTemperaturePair.class, true);

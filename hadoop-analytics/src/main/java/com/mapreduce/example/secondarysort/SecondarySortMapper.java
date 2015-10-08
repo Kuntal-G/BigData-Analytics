@@ -14,8 +14,7 @@ import java.io.IOException;
  * @author kuntal
  *
  */
-public class SecondarySortMapper 
-    extends Mapper<LongWritable, Text, DateTemperaturePair, Text> {
+public class SecondarySortMapper extends Mapper<LongWritable, Text, DateTemperaturePair, Text> {
 
     private Text theTemperature = new Text();
     private DateTemperaturePair pair = new DateTemperaturePair();

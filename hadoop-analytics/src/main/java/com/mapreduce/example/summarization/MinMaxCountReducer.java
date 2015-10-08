@@ -23,15 +23,13 @@ public class MinMaxCountReducer extends Reducer<Text, MinMaxCountTuple, Text, Mi
 			// If the value's min is less than the result's min
 
 			// Set the result's min to value's
-			if (result.getMin() == null ||
-					val.getMin().compareTo(result.getMin()) < 0) {
+			if (result.getMin() == null ||val.getMin().compareTo(result.getMin()) < 0) {
 				result.setMin(val.getMin());
 			}
 
 			// If the value's max is more than the result's max
 			// Set the result's max to value's
-			if (result.getMax() == null ||
-					val.getMax().compareTo(result.getMax()) > 0) {
+			if (result.getMax() == null ||val.getMax().compareTo(result.getMax()) > 0) {
 				result.setMax(val.getMax());
 			}
 

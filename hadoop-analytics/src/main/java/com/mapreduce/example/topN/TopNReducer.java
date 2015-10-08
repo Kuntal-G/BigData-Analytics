@@ -18,15 +18,13 @@ import org.apache.hadoop.mapreduce.Reducer;
  * @author v
  *
  */
-public class TopNReducer  extends
-   Reducer<NullWritable, Text, IntWritable, Text> {
+public class TopNReducer  extends Reducer<NullWritable, Text, IntWritable, Text> {
 
    private int N = 10; // default
    private SortedMap<Integer, String> top = new TreeMap<Integer, String>();
 
    @Override
-   public void reduce(NullWritable key, Iterable<Text> values, Context context) 
-      throws IOException, InterruptedException {
+   public void reduce(NullWritable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
       for (Text value : values) {
          String valueAsString = value.toString().trim();
          String[] tokens = valueAsString.split(",");

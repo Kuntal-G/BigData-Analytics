@@ -12,12 +12,10 @@ import java.io.IOException;
  * @author kuntal
  *
  */
-public class SecondarySortReducer 
-    extends Reducer<DateTemperaturePair, Text, Text, Text> {
+public class SecondarySortReducer extends Reducer<DateTemperaturePair, Text, Text, Text> {
 
     @Override
-    protected void reduce(DateTemperaturePair key, Iterable<Text> values, Context context) 
-    	throws IOException, InterruptedException {
+    protected void reduce(DateTemperaturePair key, Iterable<Text> values, Context context)throws IOException, InterruptedException {
     	StringBuilder builder = new StringBuilder();
     	for (Text value : values) {
     		builder.append(value.toString());

@@ -11,8 +11,8 @@ public class MinMaxCountTuple {
 	private Date min = new Date();
 	private Date max = new Date();
 	private long count = 0;
-	private final static SimpleDateFormat frmt = new SimpleDateFormat(
-			"yyyy-MM-dd'T'HH:mm:ss.SSS");
+	private final static SimpleDateFormat frmt = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+	
 	public Date getMin() {
 		return min;
 	}

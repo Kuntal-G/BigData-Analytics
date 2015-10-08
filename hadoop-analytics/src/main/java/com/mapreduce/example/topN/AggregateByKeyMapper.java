@@ -20,16 +20,14 @@ import org.apache.hadoop.mapreduce.Mapper.Context;
  * @author kuntal
  *
  */
-public class AggregateByKeyMapper extends
-         Mapper<Object, Text, Text, IntWritable> {
+public class AggregateByKeyMapper extends  Mapper<Object, Text, Text, IntWritable> {
 
    // reuse objects
    private Text K2 = new Text();
    private IntWritable V2 = new IntWritable();
 
    @Override
-   public void map(Object key, Text value, Context context)
-         throws IOException, InterruptedException {
+   public void map(Object key, Text value, Context context)  throws IOException, InterruptedException {
 
       String valueAsString = value.toString().trim();
       String[] tokens = valueAsString.split(",");

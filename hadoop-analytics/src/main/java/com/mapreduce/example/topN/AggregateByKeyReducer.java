@@ -20,12 +20,10 @@ import org.apache.hadoop.mapreduce.Reducer.Context;
  * @author kuntal
  *
  */
-public class AggregateByKeyReducer  extends
-    Reducer<Text, IntWritable, Text, IntWritable> {
+public class AggregateByKeyReducer  extends Reducer<Text, IntWritable, Text, IntWritable> {
 
       @Override
-      public void reduce(Text key, Iterable<IntWritable> values, Context context) 
-         throws IOException, InterruptedException {
+      public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
          
          int sum = 0;
          for (IntWritable value : values) {

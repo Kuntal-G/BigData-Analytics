@@ -16,13 +16,10 @@ import org.apache.hadoop.mapreduce.Partitioner;
  * @author kuntal
  *
  */
-public class DateTemperaturePartitioner 
-   extends Partitioner<DateTemperaturePair, Text> {
+public class DateTemperaturePartitioner extends Partitioner<DateTemperaturePair, Text> {
 
     @Override
-    public int getPartition(DateTemperaturePair pair, 
-                            Text text, 
-                            int numberOfPartitions) {
+    public int getPartition(DateTemperaturePair pair,Text text, int numberOfPartitions) {
     	// make sure that partitions are non-negative
         return Math.abs(pair.getYearMonth().hashCode() % numberOfPartitions);
     }

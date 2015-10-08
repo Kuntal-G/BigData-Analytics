@@ -18,15 +18,13 @@ import org.apache.hadoop.mapreduce.Mapper;
  * @author kuntal
  *
  */
-public class TopNMapper extends
-   Mapper<Text, IntWritable, NullWritable, Text> {
+public class TopNMapper extends   Mapper<Text, IntWritable, NullWritable, Text> {
 
    private int N = 10; // default
    private SortedMap<Integer, String> top = new TreeMap<Integer, String>();
 
    @Override
-   public void map(Text key, IntWritable value, Context context)
-         throws IOException, InterruptedException {
+   public void map(Text key, IntWritable value, Context context)throws IOException, InterruptedException {
 
       String keyAsString = key.toString();
       int frequency =  value.get();
@@ -39,15 +37,13 @@ public class TopNMapper extends
    }
    
    @Override
-   protected void setup(Context context) throws IOException,
-         InterruptedException {
+   protected void setup(Context context) throws IOException, InterruptedException {
       this.N = context.getConfiguration().getInt("N", 10); // default is top 10
    }
    
 
    @Override
-   protected void cleanup(Context context) throws IOException,
-         InterruptedException {
+   protected void cleanup(Context context) throws IOException,InterruptedException {
       for (String str : top.values()) {
          context.write(NullWritable.get(), new Text(str));
       }

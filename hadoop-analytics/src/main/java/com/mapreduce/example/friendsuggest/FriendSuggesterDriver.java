@@ -26,7 +26,7 @@ import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
  *     by MR-phase2: to find friend recommendations.
  *
  *
- * @author Mahmoud Parsian
+ * @author kuntal
  *
  */
 public class FriendSuggesterDriver  extends Configured implements Tool {

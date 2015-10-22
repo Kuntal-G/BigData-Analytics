@@ -1,15 +1,14 @@
 package com.mapreduce.example.friendsuggest;
 
-import java.util.List;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.io.IOException;
+import java.util.List;
 
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.commons.lang.StringUtils;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
 
 /**
  * Phase1Mapper: emits one-degree and 2nd degree connections
@@ -84,10 +83,6 @@ public class Phase1Mapper
        for (int i = 0; i < friends.size(); i++) {
           long f1 = friends.get(i);
 
-          // create a key representing the user and direct friend
-          // assure that the lower of user and f1 is first in the key
-          // this is a direct (first degree) connection, therefore we
-          // flag this connection by using the zero flag
           PairOfLongs s1 = buildSortedPairOfLongs(person, f1);
           context.write(s1, ZERO);
           //System.out.println("s1="+s1.toString()+"0");

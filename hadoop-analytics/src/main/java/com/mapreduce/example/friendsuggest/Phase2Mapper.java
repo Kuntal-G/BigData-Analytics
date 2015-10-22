@@ -1,9 +1,9 @@
 package com.mapreduce.example.friendsuggest;
 
 import java.io.IOException;
+
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Mapper.Context;
 
 /**
  * Phase2Mapper: generate possible friends recommendations
@@ -11,13 +11,9 @@ import org.apache.hadoop.mapreduce.Mapper.Context;
  * @author kuntal
  *
  */
-public class Phase2Mapper
-    extends Mapper<PairOfLongs, LongWritable, LongWritable, PairOfLongs> {
+public class Phase2Mapper  extends Mapper<PairOfLongs, LongWritable, LongWritable, PairOfLongs> {
     
-    public void map(PairOfLongs key, 
-                    LongWritable value, 
-                    Context context) 
-        throws IOException, InterruptedException {
+    public void map(PairOfLongs key, LongWritable value,  Context context)  throws IOException, InterruptedException {
         // identify two users with mutual number of friends
         long user1 = key.getLeft();
         long user2 = key.getRight();

@@ -1,41 +1,36 @@
 package com.mapreduce.example.friendsuggest;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.TreeMap;
 
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.Reducer.Context;
 
 
 /**
- * A reducer class that aggregates possible friends recommendations
+ * A reducer class that aggregates possible friends recommendations.
+ * This example is done using algorithm given in Map reduce pattern book
  *
  *
  * @author kuntal
  *
  */
-public class Phase2Reducer 
-    extends Reducer<LongWritable, PairOfLongs, LongWritable, Text> {
+public class Phase2Reducer   extends Reducer<LongWritable, PairOfLongs, LongWritable, Text> {
 
     private int numberOfRecommendations = 5; // default
 
-    // called once at the beginning of the task.
-    protected void setup(Context context)
-       throws IOException,InterruptedException {
+   
+    protected void setup(Context context)  throws IOException,InterruptedException {
        this.numberOfRecommendations = 
           context.getConfiguration().getInt("number.of.recommendations", 5);
     }
 
 
-    public void reduce(LongWritable userAsKey, 
-                       Iterable<PairOfLongs> values, 
-                       Context context) 
-        throws IOException, InterruptedException {
+    public void reduce(LongWritable userAsKey, Iterable<PairOfLongs> values,   Context context)         throws IOException, InterruptedException {
         // step-1: build sorted map of friendship
         TreeMap<Long, List<Long>> sortedMap = buildSortedMap(values);
 

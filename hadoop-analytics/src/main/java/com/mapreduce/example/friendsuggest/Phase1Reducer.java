@@ -1,9 +1,9 @@
 package com.mapreduce.example.friendsuggest;
 
 import java.io.IOException;
+
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.Reducer.Context;
 
 /**
  * A reducer class that just emits the sum of the input values for non-direct friends

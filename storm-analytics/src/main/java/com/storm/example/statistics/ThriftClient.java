@@ -1,4 +1,4 @@
-package com.storm.example.statstics;
+package com.storm.example.statistics;
 
 
 import org.apache.thrift7.protocol.TBinaryProtocol;

@@ -1,4 +1,4 @@
-package com.storm.example.statstics;
+package com.storm.example.statistics;
 
 import backtype.storm.generated.Nimbus.Client;
 

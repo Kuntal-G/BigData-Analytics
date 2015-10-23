@@ -1,5 +1,14 @@
 package com.storm.example.twitter;
 
+import java.util.Map;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import twitter4j.StallWarning;
+import twitter4j.Status;
+import twitter4j.StatusDeletionNotice;
+import twitter4j.StatusListener;
+import twitter4j.TwitterStream;
+import twitter4j.TwitterStreamFactory;
 import backtype.storm.Config;
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -8,11 +17,6 @@ import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
-import com.google.common.base.Preconditions;
-import twitter4j.*;
-
-import java.util.Map;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Reads Twitter's sample feed using the twitter4j library.
@@ -26,8 +30,7 @@ public class TwitterSampleSpout extends BaseRichSpout {
     private TwitterStream twitterStream;
 
 	@Override
-	public void open(Map conf, TopologyContext context,
-			SpoutOutputCollector collector) {
+	public void open(Map conf, TopologyContext context,	SpoutOutputCollector collector) {
 		queue = new LinkedBlockingQueue<Status>(1000);
 		this.collector = collector;
 
@@ -59,6 +62,7 @@ public class TwitterSampleSpout extends BaseRichSpout {
 		};
 
         TwitterStreamFactory factory = new TwitterStreamFactory();
+        //TODO: Add twitter authentication credential to this factory instance
 		twitterStream = factory.getInstance();
 		twitterStream.addListener(listener);
 		twitterStream.sample();

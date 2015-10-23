@@ -43,8 +43,7 @@ public class SampleSpout extends BaseRichSpout {
 		COMPANYNAME.put(4, "awe");
 	}
 
-	public void open(Map conf, TopologyContext context,
-			SpoutOutputCollector spoutOutputCollector) {
+	public void open(Map conf, TopologyContext context,	SpoutOutputCollector spoutOutputCollector) {
 		// Open the spout
 		this.spoutOutputCollector = spoutOutputCollector;
 	}

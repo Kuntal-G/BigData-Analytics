@@ -3,7 +3,6 @@ package com.storm.example.twitter;
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.topology.TopologyBuilder;
-import com.google.common.base.Preconditions;
 
 
 public class Topology {

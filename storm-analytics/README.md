@@ -1,4 +1,4 @@
-# storm-analytics
+# Storm Analytics
 
 This projects contains some simple scenario with storm api.
 

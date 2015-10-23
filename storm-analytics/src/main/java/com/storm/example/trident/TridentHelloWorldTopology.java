@@ -29,11 +29,9 @@ public class TridentHelloWorldTopology {
 
 		topology.newStream("spout1", spout)
 				.shuffle()
-				.each(new Fields("text", "Country"),
-						new TridentUtility.TweetFilter())
+				.each(new Fields("text", "Country"),new TridentUtility.TweetFilter())
 				.groupBy(new Fields("Country"))
-				.aggregate(new Fields("Country"), new Count(),
-						new Fields("count"))
+				.aggregate(new Fields("Country"), new Count(),new Fields("count"))
 				.each(new Fields("count"), new TridentUtility.Print())
 				.parallelismHint(2);
 

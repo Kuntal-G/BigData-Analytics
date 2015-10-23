@@ -18,6 +18,7 @@ public class FakeTweetSpout implements IBatchSpout{
 	private static final long serialVersionUID = 10L;
 	private int batchSize;
 	private HashMap<Long, List<List<Object>>> batchesMap = new HashMap<Long, List<List<Object>>>();
+	
 	public FakeTweetSpout(int batchSize) {
 		this.batchSize = batchSize;
 	}

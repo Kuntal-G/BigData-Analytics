@@ -14,12 +14,6 @@ import org.apache.hadoop.util.GenericOptionsParser;
 
 import java.io.IOException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: andrea
- * Date: 13/04/14
- * Time: 16.15
- */
 public class JoinWithSort {
 
     public static void main(String[] args) throws Exception {

@@ -16,7 +16,7 @@ import java.util.List;
  * found at the position given by the configuration parameter keyIndex. Also, if the keyIndex is not equal to
  * zero, we swap the order of the values found in the first position and the keyIndex position.
  *
- * @author ashrith
+ * @author kuntal
  */
 public class SortByKeyMapper extends Mapper<LongWritable, Text, Text, Text> {
 

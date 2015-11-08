@@ -6,6 +6,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Example from map reduce design pattern example.
+ * 
+ * @author kuntal
+ *
+ */
 public class MinMaxCountTuple {
 
 	private Date min = new Date();

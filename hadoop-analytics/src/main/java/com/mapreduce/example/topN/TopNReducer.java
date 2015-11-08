@@ -15,7 +15,7 @@ import org.apache.hadoop.mapreduce.Reducer;
  *  Reducer's input are local top N from all mappers.
  *  We have a single reducer, which creates the final top N.
  * 
- * @author v
+ * @author kuntal
  *
  */
 public class TopNReducer  extends Reducer<NullWritable, Text, IntWritable, Text> {

@@ -28,12 +28,6 @@ public class WordCountDriver  extends Configured implements Tool {
 
     private static Logger theLogger = Logger.getLogger(WordCountDriver.class);
 
-    /**
-     *      Arguments are:
-     *        args[0] = N (as integer)
-     *        args[1] = input path
-     *        args[2] = output path
-     */   
     public int run(String[] args) throws Exception {
 
        Job job = new Job(getConf());

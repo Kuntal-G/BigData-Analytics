@@ -1,5 +1,7 @@
 package com.mapreduce.example.join.reduceside;
 
+import java.net.URI;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.filecache.DistributedCache;
@@ -12,8 +14,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import java.net.URI;
-
 /**
  * Besides the usual driver code, we are-
  * 1. Adding side data (department lookup data in map file format - in HDFS) to the distributed cache
@@ -21,7 +21,7 @@ import java.net.URI;
  * This is used by the mapper, to tag data with sourceIndex.
  * 3. And lastly, we are associating all the various classes we created to the job.
  *
- * @author ashrith
+ * @author kuntal
  */
 public class Driver extends Configured implements Tool {
 

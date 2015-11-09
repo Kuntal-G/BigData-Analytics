@@ -15,7 +15,7 @@ import java.net.URI;
 /**
  * Creates department map file from its text equivalent from HDFS
  *
- * @author ashrith
+ * @author kuntal
  */
 public class CreateDepartmentsMapFile {
     public static void main(String[] args) throws IOException {

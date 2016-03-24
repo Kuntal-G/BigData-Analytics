@@ -5,6 +5,9 @@ import storm.trident.operation.builtin.Count;
 import storm.trident.operation.builtin.FilterNull;
 import storm.trident.operation.builtin.MapGet;
 import storm.trident.testing.MemoryMapState;
+
+import java.util.HashMap;
+
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.LocalDRPC;
@@ -32,7 +35,7 @@ public class DistributedRPC {
 			conf.setNumWorkers(3);
 			StormSubmitter.submitTopology(args[0], conf, buildTopology(null));
 			Thread.sleep(2000);
-   		  	DRPCClient client = new DRPCClient("RRPC-Server", 1234);
+   		  	DRPCClient client = new DRPCClient(new HashMap(),"RRPC-Server", 1234);
    		  	System.out.println(client.execute("Count", "Japan,India,Europe"));
 		}
 	}
